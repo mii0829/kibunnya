@@ -1,0 +1,14 @@
+<section>
+    <h1><%= current_user.name %>のお気に入り登録した本</h1>
+    <% if !@liked_posts.nil? %>
+        <% @liked_posts.each do |post| %>
+            <div>
+                <p>タイトル<%= post.title %></p>
+                <p>コメント<%= post.comment %></p>
+                <p>どんな気分の時におすすめか<%= post.feeling %></p>
+            </div>
+        <% end %>
+    <% else %>
+        <p>投稿がありません</p>
+    <% end %>
+</section>

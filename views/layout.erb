@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>気分屋</title>
+</head>
+<body>
+  <% if !current_user.nil? %>
+    <a href="/mypage"><li><%= current_user.name %>さん</li></a>
+    <li><a href="/signout">ログアウト</a></li>
+  <% end %>
+  <%= yield %>
+</body>
+</html>

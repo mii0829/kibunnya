@@ -1,0 +1,19 @@
+<div>
+  <tr>
+    <td colspan="7"><a href="/search">検索</a></td>
+  </tr>
+  <tr>
+    <td colspan="7"><a href="/posts/new">新しい投稿</a></td>
+  </tr>
+  
+  <div>
+    <% @contents.each do |content| %>
+      <p><%= content.feeling.try(:name) %></p>
+    <div>
+      <p><%= content.title %></p>
+      <p><%= content.comment %></p>
+    </div>
+    <% end %>
+
+  </div>
+</div>

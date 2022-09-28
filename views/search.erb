@@ -1,0 +1,30 @@
+<div>
+    <div>
+        <% @feeling.each do |feeling| %>
+            <a href="/feeling/<%= feeling.id %>"><%= feeling.name %></a>
+        <% end %>
+    </div>
+    
+
+    
+    <% if @feel_name.present? %>
+        <h2><%= @feel_name %></h2>
+      <% @contents.each do |content| %>
+        <p><%= content.feeling.try(:name) %></p>
+        <p><%= content.title %></p>
+        <p><%= content.comment %></p>
+        <% if !current_user.nil? %>
+          <% if Like.find_by(user_id: current_user.id, post_id: content.id) %>
+            <a href="/post/<%= content.id %>/like/delete">いいね解除</a>
+          <% else %>
+            <a href="/post/<%= content.id %>/like">いいねする</a><br>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    
+
+  <tr>
+    <td colspan="7"><a href="/home">back</a></td>
+  </tr>
+</div>
