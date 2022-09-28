@@ -130,6 +130,6 @@ get '/home' do
  
  get '/mypage' do
     @contents = Post.all
-    @liked_posts = Like.all
+    @liked_posts = current_user.like_posts
     erb :mypage
  end 

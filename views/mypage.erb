@@ -3,12 +3,16 @@
     <% if !@liked_posts.nil? %>
         <% @liked_posts.each do |post| %>
             <div>
-                <p>タイトル<%= post.title %></p>
-                <p>コメント<%= post.comment %></p>
-                <p>どんな気分の時におすすめか<%= post.feeling %></p>
+                <p><%= post.title %></p>
+                <p><%= post.comment %></p>
+                <p><%= post.feeling_id %></p>
             </div>
         <% end %>
     <% else %>
-        <p>投稿がありません</p>
+        <p>いいねした投稿がありません</p>
     <% end %>
+    
+    <tr>
+        <a href="/home">back</a>
+    </tr>
 </section>
