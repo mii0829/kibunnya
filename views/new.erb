@@ -1,13 +1,15 @@
 <body>
-    <div>
+    <div class="center-vertical">
+    <div clas="container">
+    <div class="border col-20">
         <form action="/post" method="post">
             <div>
                 <label for="title">タイトル</label>
-                <input type="text" name="title" id="title">
+                <input type="text" name="title" id="title" class="form-control">
             </div>
             <div>
                 <label for="comment">コメント</label>
-                <input type="text" name="comment" id="comment">
+                <input type="text" name="comment" id="comment" class="form-control">
             </div>
             <div>
                 <label for="feeling">どんな気分の時におすすめか</label>
@@ -17,7 +19,17 @@
                     <% end %>
                 </select>
             </div>
+            <div>
+                <label for="timer">所要時間</label>
+                <select name="timer" id="timer">
+                    <% @timer.each do |timer| %>
+                        <option value="<%= timer.id %>"><%= timer.name %></option>
+                    <% end %>
+                </select>
+            </div>            
             <input type="submit" value="登録">
+        </div>
+        </div>
         </form>
         <tr>
             <td colspan="7"><a href="/home">back</a></td>

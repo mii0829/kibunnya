@@ -5,6 +5,7 @@ ActiveRecord::Base.establish_connection
 
 class Post < ActiveRecord::Base
     belongs_to :feeling
+    belongs_to :timer
     belongs_to :user
     has_many :likes
     has_many :like_users, :through => :likes, source: :user
@@ -32,4 +33,8 @@ class Like < ActiveRecord::Base
     presence: true
     belongs_to :user
     belongs_to :post
+end 
+
+class Timer < ActiveRecord::Base
+    has_many :posts
 end 

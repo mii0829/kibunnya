@@ -16,6 +16,7 @@ end
 get '/' do
   @contents = Post.all
   @feeling = Feeling.all
+  @timer = Timer.all
   erb :index
 end
 
@@ -73,11 +74,13 @@ end
 get '/search' do
     @contents = Post.all
     @feeling = Feeling.all
+    @timer = Timer.all
   erb :search
 end 
 
 get '/posts/new' do
   @feeling = Feeling.all
+  @timer = Timer.all
   erb :new
 end
 
@@ -85,10 +88,12 @@ post '/post' do
     Post.create({
         title: params[:title],
         comment: params[:comment],
-        feeling_id: params[:feeling]
+        feeling_id: params[:feeling],
+        timer_id: params[:timer]
     })
     @contents = Post.all
     @feeling = Feeling.all
+    @timer = Timer.all
     erb :home
 end 
 
@@ -105,6 +110,17 @@ get '/home' do
     @posts = @feel.posts
     erb :search
  end 
+ 
+ 
+ get '/timer/:id' do
+    @contents = Post.where(timer_id: params[:id])
+    @timer = Timer.all
+    @time = Timer.find(params[:id])
+    @time_name = @time.name
+    @posts = @time.posts
+    erb :search
+ end 
+ 
  
  get '/back' do
      erb :index
@@ -133,3 +149,13 @@ get '/home' do
     @liked_posts = current_user.like_posts
     erb :mypage
  end 
+ 
+get '/secret' do
+    @secret = false
+    redirect '/search'
+end 
+
+get '/secret/stop' do
+    @secret = false
+    redirect '/search'
+end 
