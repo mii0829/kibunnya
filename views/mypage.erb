@@ -1,18 +1,26 @@
 <section>
+    <div class="center-vertical">
     <h1><%= current_user.name %>のお気に入り登録した本</h1>
-    <% if !@liked_posts.nil? %>
-        <% @liked_posts.each do |post| %>
-            <div>
-                <p><%= post.title %></p>
-                <p><%= post.comment %></p>
-                <p><%= post.feeling_id %></p>
-            </div>
-        <% end %>
-    <% else %>
-        <p>いいねした投稿がありません</p>
-    <% end %>
+            <% if !@liked_posts.nil? %>
+                <% @liked_posts.each do |post| %>
+                <div class="border col-4">
+                <div>
+                    <p><%= post.title %></p>
+                    <p><%= post.comment %></p>
+                    <p><%= post.feeling_id.try(:name) %></p>
+                </div>
+                </div>
+                <% end %>
+            <% else %>
+                <p>いいねした投稿がありません</p>
+            <% end %>
+            
+    <tr>
+        <a class="example3" href="/posts/new">投稿画面へ！！！</a>
+    </tr>
     
     <tr>
-        <a href="/home">back</a>
+        <a href="/home">top pageへ戻る</a>
     </tr>
+    </div>
 </section>

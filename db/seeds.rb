@@ -6,9 +6,7 @@ if Feeling.count == 0
         {name: '思いっきり泣きたい'},
         {name: '笑いたい'}
     ])
-end 
-
-if Timer.count == 0
+    
     Timer.create([
         {name: '30分以内'},
         {name: '2時間前後'},

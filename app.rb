@@ -151,11 +151,7 @@ get '/home' do
  end 
  
 get '/secret' do
-    @secret = false
+    @secret == true
     redirect '/search'
 end 
 
-get '/secret/stop' do
-    @secret = false
-    redirect '/search'
-end 

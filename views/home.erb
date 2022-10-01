@@ -8,15 +8,45 @@
 </section>
 
 <section class="center-vertical">
+  <div class="promotion">
+    <p>気分屋は、きぶんから、本の検索ができるサービスです。<br>
+  タイトル・ランキング・著者から探すだけでは、見つけられないような素敵な本との出会いがありますように。。</p>
+  </div>
+  
+  <div>
+    <h1 class="center-vertical">このサービスの使い方</h1>
+    <div class="col-3">
+      <i class="fa-solid fa-heart-circle-plus size center-vertical"></i><br>
+    　<h2>お気に入り登録をして自分だけの本棚を作ろう！</h2>
+    　<p>お気に入りの本を見つけたら、お気に入り登録をして、自分だけの本棚を作ろう！ページ上部ユーザー名をクリックすると、自分の本棚を見ることができるよ。</p>
+    　
+    </div>
+    <div class="col-3">
+      <i class="fa-solid fa-magnifying-glass size center-vertical"></i><br>
+    　<h2>気分、時間などに合わせた本を探そう！</h2>
+    　<p>検索画面に飛んだら、自分が探したいキーワードをクリックしよう。要望の気分や、所要時間にあった本が見つかるはず！</p>
+    　
+    </div>
+    
+    <div class="col-3">
+      <i class="fa-solid fa-plus size center-vertical"></i><br>
+    　<h2>「新しい投稿」ボタンから、投稿をしよう！</h2>
+    　<p>みんなにおすすめしたい本を見つけたら、投稿をしよう！あなたの投稿が、みんなの本との新たな出会いにつながる！自分の投稿は、マイページから確認・編集ができるよ！</p>
+    　
+    </div>
+  </div>
+
+  
+  
   <h1>最近の投稿</h1>
     <div class="row justify-content-center">
         <% @contents.each do |content| %>
           <div class="border col-5">
               <div>
-                <p>タイトル：<%= content.title %></p>
-                <p>コメント：<%= content.comment %></p>
-                <p>どんな気分の時におすすめか：<%= content.feeling.try(:name) %></p>
-                <p>所要時間：<%= content.timer.try(:name) %></p>
+                <p><div class="subject"><i class="fa-solid fa-book"></i> タイトル：<%= content.title %></div></p>
+                <p><i class="fa-regular fa-face-smile"></i> どんな気分の時におすすめか：<%= content.feeling.try(:name) %></p>
+                <p><i class="fa-regular fa-clock"></i>　所要時間：<%= content.timer.try(:name) %></p>
+                <p><i class="fa-regular fa-comment"></i> コメント：<%= content.comment %></p>
               </div>
           </div>
         <% end %>
